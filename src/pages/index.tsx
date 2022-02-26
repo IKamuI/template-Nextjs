@@ -1,6 +1,7 @@
 import { VStack } from "@chakra-ui/react"
+import { Content } from "@components/Content"
 
-import { Content } from "@/components/content"
+
 
 const IndexPage = () => {
 
