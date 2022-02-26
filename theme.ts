@@ -18,6 +18,6 @@ export const theme = extendTheme({
   },
 },
   withDefaultVariant({
-    variant: 'ghost',
+    variant: 'solid',
     components: ['Button', 'IconButton']
   }));

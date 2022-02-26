@@ -15,15 +15,15 @@ export const navItems: NavItem[] = [
   },
   {
     type: 'link',
-    href: '/search',
+    href: '/dashboard',
     icon: RiSearchLine,
-    label: 'Search',
+    label: 'DashBoard',
   },
   {
     type: 'link',
-    href: '/discover',
+    href: '/dashboard/cardapio',
     icon: FaCompass,
-    label: 'Discover',
+    label: 'Cardapio',
   },
   {
     type: 'link',

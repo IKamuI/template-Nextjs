@@ -1,9 +1,10 @@
 import { HStack, VStack } from "@chakra-ui/react";
 import { Sidebar } from "@components/Sidebar";
+import { Children } from "react";
 
 
 
-export const Content = () => {
+export const Content = ({ children }) => {
   return (
     <HStack
       width={"full"}
@@ -21,7 +22,7 @@ export const Content = () => {
         spacing={6}
         overflow={"hidden"}
       >
-
+        {children}
       </VStack>
     </HStack>
   )
