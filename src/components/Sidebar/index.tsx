@@ -2,7 +2,7 @@ import { VStack, List, ListItem } from "@chakra-ui/react"
 import { useRouter } from "next/router";
 
 import { NavItem } from "./nav-item";
-import { NavItem as NavItemProps } from '@/types/nav-item';
+import { NavItem as NavItemProps } from 'types/nav-item';
 import { navItems } from "./nav-data";
 
 export const Sidebar = () => {
