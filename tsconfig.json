@@ -5,11 +5,14 @@
       "@components/*": [
         "components/*"
       ],
-      "@type/*": [
+      "types/*": [
         "types/*"
       ],
       "@hooks/*": [
         "hooks/*"
+      ],
+      "@interfaces/*": [
+        "interfaces/*"
       ]
     },
     "target": "es5",
