@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react"
+import { useColorMode, useColorModeValue, VStack } from "@chakra-ui/react"
 import { Content } from "@components/Content"
 
 import { useAuth } from '@hooks/auth'
@@ -14,7 +14,6 @@ const AppLayout = ({ children }) => {
   return (
     <VStack
       height={"100vh"}
-      bg="black"
       width="full"
       overflow={"hidden"}
       spacing={0}

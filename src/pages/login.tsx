@@ -24,9 +24,9 @@ const Login = () => {
   }
   return (
     <Flex h="100vh" align="center" justify="center">
-      <VStack bg="gray.300" p={16} rounded={6}>
+      <VStack as="form" onSubmit={handleSubmitForm} bg="gray.300" p={16} rounded={6}>
         <Heading mb={6}>Log In</Heading>
-        <VStack as="form" onSubmit={handleSubmitForm} spacing={5}>
+        <VStack spacing={5}>
           <FormControl>
             <FormLabel htmlFor="email"> Email</FormLabel>
             <Input size="lg" placeholder="joaopaulo@gmail.com" id="email" variant="filled" mb={3} type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
