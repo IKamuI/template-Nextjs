@@ -8,8 +8,7 @@ import { useAuth } from '@hooks/auth'
 const AppLayout = ({ children }) => {
   const { user } = useAuth({ middleware: 'auth' })
 
-  // const { toggleColorMode } = useColorMode()
-  // const formBackground = useColorModeValue("gray.100", "gray.700");
+  const formBackground = useColorModeValue("light", "gray.700");
 
   return (
     <VStack
@@ -17,6 +16,7 @@ const AppLayout = ({ children }) => {
       width="full"
       overflow={"hidden"}
       spacing={0}
+      bg={formBackground}
     >
       <HStack
         width={"full"}

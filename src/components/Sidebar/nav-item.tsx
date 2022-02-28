@@ -1,5 +1,5 @@
 import NextLink from 'next/link';
-import { Heading, Icon, Text, HStack, Box, Link } from '@chakra-ui/react';
+import { Heading, Icon, Text, HStack, Box, Link, useTheme } from '@chakra-ui/react';
 
 import { NavItem as Item } from 'types/nav-item';
 
@@ -9,6 +9,7 @@ type Props = {
 };
 
 export const NavItem = ({ isActive, item }: Props) => {
+
   const { label } = item;
 
   if (item.type === 'link') {
@@ -24,7 +25,7 @@ export const NavItem = ({ isActive, item }: Props) => {
             transitionProperty="background"
             transitionDuration="normal"
             _hover={{
-              background: 'gray.dark'
+              background: 'primary.text'
             }}
           >
             <Icon
@@ -32,7 +33,7 @@ export const NavItem = ({ isActive, item }: Props) => {
               height={5}
               mr={4}
               ml={8}
-              color={isActive ? "brand.red" : "gray.light"}
+              color={isActive ? "brand.red" : ""}
               as={icon}
             />
             <Text
@@ -40,7 +41,7 @@ export const NavItem = ({ isActive, item }: Props) => {
               fontWeight="medium"
               flex={1}
               letterSpacing="wider"
-              color={isActive ? "brand.red" : "whiteAlpha.900"}
+              color={isActive ? "brand.red" : ""}
             >
               {label}
             </Text>
@@ -55,7 +56,6 @@ export const NavItem = ({ isActive, item }: Props) => {
 
   return (
     <Heading
-      color="gray.light"
       fontWeight="normal"
       textTransform="uppercase"
       letterSpacing={6}

@@ -1,12 +1,10 @@
-import { Button, Flex, FormControl, FormLabel, Heading, HStack, Input, Text, VStack } from "@chakra-ui/react"
+import { Button, Flex, Heading, HStack, VStack } from "@chakra-ui/react"
+import Input from "@components/Input"
 import { useAuth } from "@hooks/auth"
-import { useRouter } from "next/router"
 import { useState } from "react"
 
 
 const Login = () => {
-  const router = useRouter()
-
   const { login } = useAuth({
     middleware: 'guest',
     redirectIfAuthenticated: '/dashboard',
@@ -16,29 +14,41 @@ const Login = () => {
   const [password, setPassword] = useState('')
   const [errors, setErrors] = useState([])
   const [status, setStatus] = useState(null)
+  const [loading, setLoading] = useState(false);
 
   const handleSubmitForm = async event => {
     event.preventDefault()
-
-    login({ email, password, setErrors, setStatus })
+    login({ email, password, setErrors, setStatus, setLoading })
   }
   return (
     <Flex h="100vh" align="center" justify="center">
-      <VStack as="form" onSubmit={handleSubmitForm} bg="gray.300" p={16} rounded={6}>
+      <VStack as="form" onSubmit={handleSubmitForm} bg="gray.700" p={16} rounded={6}>
         <Heading mb={6}>Log In</Heading>
         <VStack spacing={5}>
-          <FormControl>
-            <FormLabel htmlFor="email"> Email</FormLabel>
-            <Input size="lg" placeholder="joaopaulo@gmail.com" id="email" variant="filled" mb={3} type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
-          </FormControl>
+          <Input
+            label="Email"
+            size="lg"
+            placeholder="joaopaulo@gmail.com"
+            id="email"
+            variant="filled"
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
 
-          <FormControl>
-            <FormLabel htmlFor="password">Password</FormLabel>
-            <Input size="lg" placeholder="joaopaulo@gmail.com" id="password" variant="filled" mb={3} type="password" onChange={(event) => setPassword(event.target.value)} />
-          </FormControl>
+          <Input
+            label="Password"
+            size="lg"
+            placeholder="******"
+            id="password"
+            variant="filled"
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
         </VStack>
         <HStack w="full" spacing={5} justify="flex-end">
-          <Button type="submit" colorScheme="teal" variant="solid"> Log In</Button>
+          <Button isLoading={loading} type="submit" colorScheme="teal" variant="solid"> Log In</Button>
         </HStack>
       </VStack>
     </Flex >

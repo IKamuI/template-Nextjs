@@ -7,7 +7,6 @@ import useAuthData from '@interfaces/useAuth'
 
 export const useAuth = ({ middleware, redirectIfAuthenticated }: useAuthData) => {
   const router = useRouter();
-
   const { data: user, error, mutate: revalidate } = useSWR('/api/user', () =>
     axios
       .get('/api/user')
@@ -37,16 +36,19 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: useAuthData) =>
       })
   }
 
-  const login = async ({ setErrors, setStatus, ...props }) => {
+  const login = async ({ setErrors, setStatus, setLoading, ...props }) => {
     await csrf();
 
     setErrors([])
     setStatus(null)
+    setLoading(true);
+
 
     axios
       .post('/login', props)
       .then(() => revalidate())
       .catch(error => {
+        setLoading(false)
         if (error.response.status !== 422) throw error
 
         setErrors(Object.values(error.response.data.errors).flat())

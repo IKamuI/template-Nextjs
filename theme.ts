@@ -1,4 +1,4 @@
-import { extendTheme, ThemeConfig, theme as base, withDefaultVariant } from '@chakra-ui/react';
+import { extendTheme, ThemeConfig, theme as base, withDefaultVariant, useColorModeValue } from '@chakra-ui/react';
 
 const config: ThemeConfig = {
   initialColorMode: "light",
@@ -12,6 +12,8 @@ export const theme = extendTheme({
     "gray.light": "#646464",
     "brand.red": "#E14949",
   },
+
+
   fonts: {
     heading: `Circular Std Bold, ${base.fonts?.heading}`,
     body: `Circular Std Book, ${base.fonts?.body}`,
