@@ -6,24 +6,15 @@ import { Children } from "react";
 
 export const Content = ({ children }) => {
   return (
-    <HStack
+    <VStack
+      px={12}
+      pt={12}
       width={"full"}
-      flex={1}
+      height={"full"}
+      spacing={6}
       overflow={"hidden"}
     >
-      <Sidebar />
-
-
-      <VStack
-        px={12}
-        pt={12}
-        width={"full"}
-        height={"full"}
-        spacing={6}
-        overflow={"hidden"}
-      >
-        {children}
-      </VStack>
-    </HStack>
+      {children}
+    </VStack>
   )
 };
