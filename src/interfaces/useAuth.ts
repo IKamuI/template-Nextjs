@@ -1,4 +1,8 @@
+
+type Middleware = 'guest' | 'auth';
+
+
 export default interface useAuthData {
-  middleware?: string;
+  middleware: Middleware;
   redirectIfAuthenticated?: string
 }
